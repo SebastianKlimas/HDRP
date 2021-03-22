@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
 public class MovementController : MonoBehaviour
 {
     [SerializeField] private LayerMask groundLayerMask;
+    [SerializeField] private Transform camera;
     private CharacterController controller;
     private float 
+        smoothVelocity,
         speed = 6f, 
         ground = 0.1f, 
         gravity = -9.81f, 
@@ -49,11 +52,27 @@ public class MovementController : MonoBehaviour
             // Skakanie
             if (Input.GetKeyDown(KeyCode.Space)) velocity.y = Mathf.Sqrt(jump * gravity);
         }
+        
+        // Zmieñ pozycjê
+        if (target.magnitude >= 0.1f)
+        {
+            //float targetAngle = Mathf.Atan2(target.x, target.z) * Mathf.Rad2Deg + camera.eulerAngles.y;
+            //float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref smoothVelocity, 0.1f);
+            //transform.rotation = Quaternion.Euler(0f, angle, 0);
+            //target = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
-        // Zmieñ pozycjê obiektu
-        controller.Move(target * speed * Time.deltaTime);
+            target = Camera.main.transform.forward * target.z + Camera.main.transform.right * target.x;
+            controller.Move(target * speed * Time.deltaTime);
+        }
 
-        // Skakanies
+        if (target != Vector3.zero)
+        {
+            float targetAngle = Mathf.Atan2(target.x, target.z) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 3f);
+        }
+
+        // Wykonaj skok
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
