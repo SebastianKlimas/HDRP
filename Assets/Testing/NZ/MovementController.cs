@@ -16,18 +16,26 @@ public class MovementController : MonoBehaviour
         jump = -2f;
     private bool isGrounded;
     private Vector3 target, velocity;
+    private Animator anim;
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     private void handleRunning()
     {
+        anim.SetFloat("speed", 1, 0.1f, Time.deltaTime);
     }
 
     private void handleIdle()
     {
+        anim.SetFloat("speed", 0, 0.1f, Time.deltaTime);
+    }
+    private void handleWalking()
+    {
+        anim.SetFloat("speed", 0.5f, 0.1f, Time.deltaTime);
     }
 
     private void Update()
@@ -40,14 +48,22 @@ public class MovementController : MonoBehaviour
         target = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
         if (isGrounded)
         {
-            if (target != Vector3.zero)
-            {
-                handleRunning();
-            }
-            else
+            if (target == Vector3.zero)
             {
                 handleIdle();
             }
+            else if(target != Vector3.zero && Input.GetKey(KeyCode.LeftShift))
+            {
+                handleRunning();
+            }
+
+            else 
+            {
+                handleWalking();
+                 
+            }
+           
+
 
             // Skakanie
             if (Input.GetKeyDown(KeyCode.Space)) velocity.y = Mathf.Sqrt(jump * gravity);
