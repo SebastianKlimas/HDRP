@@ -10,18 +10,19 @@ public class MovementController : MonoBehaviour
     private CharacterController controller;
     private float 
         smoothVelocity,
-        speed = 6f, 
+        speed = 2f, 
         ground = 0.1f, 
         gravity = -9.81f, 
-        jump = -2f;
+        jump = -1.8f;
     private bool isGrounded;
     private Vector3 target, velocity;
     private Animator anim;
-
+    bool jjump0;
     private void Start()
     {
         controller = GetComponent<CharacterController>();
         anim = GetComponentInChildren<Animator>();
+        jjump0 = false;
     }
 
     private void handleRunning()
@@ -52,7 +53,7 @@ public class MovementController : MonoBehaviour
             {
                 handleIdle();
             }
-            else if(target != Vector3.zero && Input.GetKey(KeyCode.LeftShift))
+            else if (target != Vector3.zero && Input.GetKey(KeyCode.LeftShift))
             {
                 handleRunning();
             }
@@ -60,14 +61,35 @@ public class MovementController : MonoBehaviour
             else 
             {
                 handleWalking();
-                 
+
             }
-           
 
 
             // Skakanie
-            if (Input.GetKeyDown(KeyCode.Space)) velocity.y = Mathf.Sqrt(jump * gravity);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                velocity.y = Mathf.Sqrt(jump * gravity);
+                jjump0 = true;
+                anim.SetBool("jump",true);
+            }
+
+         
         }
+        else
+        {
+            jjump0 = false;
+            anim.SetBool("jump", false);
+        }
+        
+        if (!isGrounded)
+        {
+            anim.SetBool("isGrounded",true);
+        }
+        else
+        {
+            anim.SetBool("isGrounded", false);
+        }
+            
         
         // Zmieñ pozycjê
         if (target.magnitude >= 0.1f)
