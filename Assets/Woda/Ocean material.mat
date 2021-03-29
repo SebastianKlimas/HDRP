@@ -11,7 +11,7 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: bd27d240976dfed46a31c51357dc06df, type: 3}
   m_ShaderKeywords: _DISABLE_SSR_TRANSPARENT
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2225
   stringTagMap:
@@ -52,10 +52,10 @@ Material:
     m_Floats:
     - Vector1_09eaa1d6bd4b4cf7b68920fb42eba4ff: 0.5
     - Vector1_491dd31b33de49969985bae4f896176f: 65.96
-    - Vector1_516849abcfcd471881526ad3b5a98b58: 9
+    - Vector1_516849abcfcd471881526ad3b5a98b58: 9.88
     - Vector1_58d1bd3065914b72bd80ed6fc41e6bea: -0.6
     - Vector1_5df7cb72900e432aa3149de3b7e17515: 5
-    - Vector1_8765a943dae742a2b7226446c8cb5964: 5
+    - Vector1_8765a943dae742a2b7226446c8cb5964: 9
     - Vector1_a62fbcc42baa426190a965aeb988e2b3: 1
     - Vector1_a62fbcc42baa426190a965aeb988e2b3_1: 1
     - Vector1_a62fbcc42baa426190a965aeb988e2b3_2: 2
@@ -116,18 +116,18 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_af4bfc53fa624b4c90012c40e715c539: {r: 1, g: 1, b: 1, a: 0}
-    - Color_d743d82934574b9382a445e05912a788: {r: 0.028657887, g: 0.047825877, b: 0.26415092, a: 0.003921569}
-    - Color_daa2f190a51d46e38889d1f10ccc1c60: {r: 0.01201495, g: 0.021048907, b: 0.16981131, a: 0.003921569}
+    - Color_d743d82934574b9382a445e05912a788: {r: 0.02745098, g: 0.047058824, b: 0.2627451, a: 0.003921569}
+    - Color_daa2f190a51d46e38889d1f10ccc1c60: {r: 0.011764706, g: 0.019339513, b: 0.16862746, a: 0.003921569}
     - Vector2_217fd5d492b64f108356302661ca7946: {r: 0.05, g: 0.05, b: 0, a: 0}
     - Vector2_26a14a0cee7144869f20b4e9d0ba586e: {r: -0.1, g: -0.1, b: 0, a: 0}
     - Vector2_32a76959a7944e81ba7f49219b2f13f6: {r: 0.1, g: 0.1, b: 0, a: 0}
     - Vector2_900a406865ed4b3fa1f95b7b82642294: {r: 0.2, g: 0.2, b: 0, a: 0}
     - Vector2_ecc75a1fb0fa43328e89e1ffd706b1e6: {r: 0.05, g: 0.05, b: 0, a: 0}
     - Vector2_f1040abeaa0646b8ae67d60af2cff98f: {r: 0.05, g: 0.05, b: 0, a: 0}
-    - Vector3_af2d3b3cfa14463b81a06dd21232c155: {r: -0.04, g: 0, b: 0.1, a: 0}
-    - Vector3_af2d3b3cfa14463b81a06dd21232c155_1: {r: 0.09, g: 0, b: 0.06, a: 0}
-    - Vector3_af2d3b3cfa14463b81a06dd21232c155_2: {r: 0.04, g: 0, b: -0.08, a: 0}
-    - Vector3_af2d3b3cfa14463b81a06dd21232c155_3: {r: 0.2, g: 0, b: 0.12, a: 0}
+    - Vector3_af2d3b3cfa14463b81a06dd21232c155: {r: 0.12, g: 0, b: 0.19, a: 0}
+    - Vector3_af2d3b3cfa14463b81a06dd21232c155_1: {r: 0.03, g: 0, b: 0.07, a: 0}
+    - Vector3_af2d3b3cfa14463b81a06dd21232c155_2: {r: 0.05, g: 0, b: 0, a: 0}
+    - Vector3_af2d3b3cfa14463b81a06dd21232c155_3: {r: 0.1, g: 0, b: 0.07, a: 0}
     - Vector4_f9a88d812c624362bd4128028ca08390: {r: 1, g: 2, b: 3, a: 4}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
