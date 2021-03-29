@@ -1,4 +1,4 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -40,12 +40,13 @@ public class MovementController : MonoBehaviour
 
     private void Update()
     {
-        // Sprawdü, czy obiekt gracza dotyka powierzchni
+        // Sprawd≈∫, czy obiekt gracza dotyka powierzchni
         isGrounded = Physics.CheckSphere(transform.position, ground, groundLayerMask);
         if (velocity.y < 0 && isGrounded) velocity.y = -2f;
 
-        // Poruszanie siÍ
+        // Poruszanie siƒô
         target = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
+        Debug.Log(isGrounded);
         if (isGrounded)
         {
             if (target == Vector3.zero)
@@ -69,7 +70,7 @@ public class MovementController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space)) velocity.y = Mathf.Sqrt(jump * gravity);
         }
         
-        // ZmieÒ pozycjÍ
+        // Zmie≈Ñ pozycjƒô
         if (target.magnitude >= 0.1f)
         {
             //float targetAngle = Mathf.Atan2(target.x, target.z) * Mathf.Rad2Deg + camera.eulerAngles.y;
